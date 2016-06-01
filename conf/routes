@@ -5,3 +5,4 @@
 GET     /messages                   controllers.MessagesController.getMessages
 POST    /messages                   controllers.MessagesController.sendMessage
 
+GET     /                           controllers.HomeController.index

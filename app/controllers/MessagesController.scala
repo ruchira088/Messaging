@@ -18,7 +18,7 @@ class MessagesController @Inject()(val reactiveMongoApi: ReactiveMongoApi)(impli
 {
   def collection = database.map( _.collection[JSONCollection]("messages"))
 
-  def getMessages(receiver: String) = Action.async
+  def getMessages = Action.async
   {
     request =>
       {
@@ -59,7 +59,6 @@ class MessagesController @Inject()(val reactiveMongoApi: ReactiveMongoApi)(impli
 
             val error = result.errmsg
             if(error.isEmpty) Ok(createResponse("success")) else BadRequest(createResponse(error.get))
-
           }
         }
     }
